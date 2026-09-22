@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pairing Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/pairing/styles.css" />
+</head>
+<body>
+  <div class="orb orb-a"></div><div class="orb orb-b"></div>
+  <main class="shell">
+    <nav class="nav"><div class="brand"><span class="brand-mark">✦</span><span>Pairing Studio</span></div><span class="status-pill"><i></i> secure flow</span></nav>
+    <section class="hero">
+      <div class="eyebrow">MULTI-DEVICE CONNECTION</div>
+      <h1>Connect your<br><span>WhatsApp account.</span></h1>
+      <p class="intro">Generate a pairing code in a few seconds and bring your personal bot online without sharing your session credentials.</p>
+      <div class="layout">
+        <section class="card form-card">
+          <div class="card-top"><span class="step">01</span><span class="micro">PHONE NUMBER</span></div>
+          <h2>Start a new connection</h2>
+          <p class="muted">Use your full number with country code. Do not include spaces, dashes, or a leading plus.</p>
+          <form id="pair-form">
+            <label for="phone">WhatsApp number</label>
+            <div class="input-wrap"><span class="prefix">+</span><input id="phone" name="phone" inputmode="numeric" autocomplete="tel" placeholder="923001234567" required /><span class="valid" id="valid">↗</span></div>
+            <button id="submit" type="submit"><span>Generate pairing code</span><b>→</b></button>
+          </form>
+          <div class="notice" id="notice" aria-live="polite"><span class="notice-icon">i</span><span id="notice-text">Your number is sent only to the configured pairing service.</span></div>
+        </section>
+        <aside class="card guide-card">
+          <div class="card-top"><span class="step">02</span><span class="micro">THREE EASY STEPS</span></div>
+          <div class="guide-list">
+            <div class="guide-item"><span>1</span><div><strong>Enter your number</strong><small>Include your country code.</small></div></div>
+            <div class="guide-item"><span>2</span><div><strong>Generate your code</strong><small>Keep this page open while it works.</small></div></div>
+            <div class="guide-item"><span>3</span><div><strong>Link the device</strong><small>WhatsApp → Linked devices → Link with phone number.</small></div></div>
+          </div>
+          <div class="security"><span>⌁</span><div><strong>Privacy first</strong><small>Never publish your session ID or pairing code.</small></div></div>
+        </aside>
+      </div>
+    </section>
+    <footer><span>Pairing Studio · built for a clean, private setup</span><span class="mono">v1.0 / READY</span></footer>
+  </main>
+  <script src="/pairing/app.js"></script>
+</body>
+</html>
