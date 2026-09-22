@@ -1,0 +1,16 @@
+{
+  "name": "custom-whatsapp-bot",
+  "description": "A configurable multi-device WhatsApp automation bot",
+  "keywords": ["whatsapp", "bot", "automation", "baileys", "nodejs"],
+  "success_url": "/",
+  "stack": "heroku-24",
+  "env": {
+    "SESSION_ID": {"description": "Optional session credential from the pairing flow", "required": false, "value": ""},
+    "PREFIX": {"description": "Bot command prefix", "required": true, "value": "."},
+    "MODE": {"description": "public, private, inbox, or groups", "required": true, "value": "public"},
+    "BOT_NAME": {"description": "Public bot name", "required": false, "value": "CHANGE_ME_BOT_NAME"},
+    "OWNER_NAME": {"description": "Owner display name", "required": true, "value": "CHANGE_ME_OWNER_NAME"},
+    "OWNER_NUMBER": {"description": "Owner WhatsApp number in international digits-only format", "required": true, "value": "CHANGE_ME_OWNER_NUMBER"}
+  },
+  "buildpacks": [{"url": "https://github.com/heroku/heroku-buildpack-nodejs.git"}]
+}
