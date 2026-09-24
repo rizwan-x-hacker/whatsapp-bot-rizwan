@@ -1,20 +1,19 @@
-FROM node:lts-buster
+FROM node:22-bookworm-slim
 
-RUN apt-get update && \
-  apt-get install -y \
-  ffmpeg \
-  imagemagick \
-  webp && \
-  apt-get upgrade -y && \
-  rm -rf /var/lib/apt/lists/*
+ENV NODE_ENV=production
+WORKDIR /app
 
-COPY package.json .
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends ffmpeg imagemagick webp \
+  && rm -rf /var/lib/apt/lists/*
 
-RUN npm install && npm install -g qrcode-terminal pm2
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev --no-audit --no-fund \
+  && npm install --global pm2@6 \
+  && npm cache clean --force
 
 COPY . .
 
-EXPOSE 3000
-
-
-CMD ["pm2-runtime", "start", "index.js"]
+# Railway provides PORT at runtime; index.js reads process.env.PORT.
+EXPOSE 9090
+CMD ["pm2-runtime", "index.js"]
